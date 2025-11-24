@@ -31,6 +31,7 @@ class PhotoUploadResponse(BaseModel):
     photoId: str
     url: str
     message: str
+    detections: list[dict]
 
 class ApiError(BaseModel):
     error: str
@@ -47,5 +48,7 @@ class UserCreate(UserBase):
     password: str
 
 
-class UserRead(UserBase):
+class UserRead(BaseModel):
     id: int
+    email: str
+    name: str

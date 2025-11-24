@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.auth import router as auth_router
+from app.database import Base, engine
+from fastapi.staticfiles import StaticFiles
+from app.routers.photos import router as photos_router
+from app.config import settings
 
 app = FastAPI(
     title="SlamLeaf Disease Detection API",
@@ -27,3 +32,15 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+Base.metadata.create_all(bind=engine)
+app.include_router(auth_router)
+app.include_router(auth_router)
+app.include_router(photos_router)
+
+# serwowanie plików z katalogu uploads/
+app.mount(
+    "/uploads",
+    StaticFiles(directory=settings.UPLOAD_DIR),
+    name="uploads"
+)

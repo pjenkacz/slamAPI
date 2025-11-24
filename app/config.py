@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     YOLO_MODEL_PATH: str = "models/best.pt"
 
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10 MB
-    ALLOWED_EXTENSIONS: set = {"jpg", "jpeg", "png"}
+    ALLOWED_EXTENSIONS: set = {"jpg", "jpeg", "png" , "heic"}
 
     class Config:
         env_file = ".env"
