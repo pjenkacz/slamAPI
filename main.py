@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.auth import router as auth_router
+from app.core.auth import router as auth_router
 from app.database import Base, engine
 from fastapi.staticfiles import StaticFiles
-from app.routers.photos import router as photos_router
-from app.config import settings
+from app.api.routers.photos import router as photos_router
+from app.core.config import settings
 
 app = FastAPI(
     title="SlamLeaf Disease Detection API",

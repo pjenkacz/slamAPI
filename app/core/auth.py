@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
-from app import models, schemas
-from app.security import (
+from app.domain import models, schemas
+from app.core.security import (
     hash_password,
     verify_password,
     create_access_token,

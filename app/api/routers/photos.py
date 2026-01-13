@@ -1,15 +1,13 @@
 import os
-import json
-from typing import List
 
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.config import settings
-from app.database import get_db
-from app import models, schemas
-from app.security import get_current_user
-from app.yolo_service import run_yolo
+from app.core.config import settings
+from app.database.database import get_db
+from app.domain import models, schemas
+from app.core.security import get_current_user
+from app.domain.yolo_service import run_yolo
 from pillow_heif import read_heif
 from PIL import Image
 from pathlib import Path

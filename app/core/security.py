@@ -7,9 +7,9 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 
-from app.config import settings
+from app.core.config import settings
 from app.database.database import get_db
-from app import models
+from app.domain import models
 
 
 # ===== HASŁA (bcrypt) =====

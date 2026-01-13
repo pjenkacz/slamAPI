@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.database import get_db
-from app import models, schemas
-from app.schemas import EmailRequest, NameRequest, PasswordRequest
-from app.security import (
+from app.database.database import get_db
+from app.domain import models, schemas
+from app.domain.schemas import EmailRequest, NameRequest, PasswordRequest
+from app.core.security import (
     get_current_user,
     verify_password, hash_password
 )
